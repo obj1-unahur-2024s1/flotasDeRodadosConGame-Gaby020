@@ -1,0 +1,176 @@
+import municipalidad.*
+import rodados.*
+import partes.*
+import colores.*
+
+/*
+describe "test de municipalidad"{
+	
+	const cachito = new ChevroletCorsa( color = rojo)
+	const depDeportes = new Dependencia(cantEmpleados = 45)
+	const depCultura = new Dependencia(cantEmpleados = 31)
+	
+	method initialize(){
+		depDeportes.agregarAFlota(cachito)
+		depDeportes.agregarAFlota(new ChevroletCorsa(color = azul))
+		depDeportes.agregarAFlota(new ChevroletCorsa(color = verde))
+		depDeportes.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = true))
+		depDeportes.agregarAFlota(new AutoEspecial(capacidad = 5, velMaxima = 160, peso = 1200, color = beige))
+	
+		depCultura.agregarAFlota(cachito)
+		depCultura.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = true))
+		depCultura.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = true))
+		depCultura.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = false))
+		depCultura.agregarAFlota(new Traffic(interior = popular, motor = bataton))
+	}
+}
+*/
+
+test "peso total de la flota" {
+
+	const cachito = new ChevroletCorsa( color = rojo)
+	
+	//Dependencia de deportes
+	const depDeportes = new Dependencia(cantEmpleados = 45)
+	
+	depDeportes.agregarAFlota(cachito)
+	depDeportes.agregarAFlota(new ChevroletCorsa(color = azul))
+	depDeportes.agregarAFlota(new ChevroletCorsa(color = verde))
+	depDeportes.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = true))
+	depDeportes.agregarAFlota(new AutoEspecial(capacidad = 5, velMaxima = 160, peso = 1200, color = beige))
+	
+	//Dependencia de cultura
+	const depCultura = new Dependencia(cantEmpleados = 31)
+	depCultura.agregarAFlota(cachito)
+	depCultura.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = true))
+	depCultura.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = true))
+	depCultura.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = false))
+	depCultura.agregarAFlota(new Traffic(interior = popular, motor = bataton))
+	
+	
+	assert.equals(6450,depDeportes.pesoTotalFlota())
+	assert.equals(10700,depCultura.pesoTotalFlota())
+
+}
+
+test "esta bien equipada la flota" {
+	
+	const cachito = new ChevroletCorsa( color = rojo)
+	
+	//Dependencia de deportes
+	const depDeportes = new Dependencia(cantEmpleados = 45)
+	
+	depDeportes.agregarAFlota(cachito)
+	depDeportes.agregarAFlota(new ChevroletCorsa(color = azul))
+	depDeportes.agregarAFlota(new ChevroletCorsa(color = verde))
+	depDeportes.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = true))
+	depDeportes.agregarAFlota(new AutoEspecial(capacidad = 5, velMaxima = 160, peso = 1200, color = beige))
+	
+	//Dependencia de cultura
+	const depCultura = new Dependencia(cantEmpleados = 31)
+	depCultura.agregarAFlota(cachito)
+	depCultura.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = true))
+	depCultura.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = true))
+	depCultura.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = false))
+	depCultura.agregarAFlota(new Traffic(interior = popular, motor = bataton))
+
+	
+	assert.equals(true,depDeportes.estaBienEquipada())
+	assert.equals(false,depCultura.estaBienEquipada())
+}
+
+test "capacidad total en azul" {
+	const cachito = new ChevroletCorsa( color = rojo)
+	
+	//Dependencia de deportes
+	const depDeportes = new Dependencia(cantEmpleados = 45)
+	
+	depDeportes.agregarAFlota(cachito)
+	depDeportes.agregarAFlota(new ChevroletCorsa(color = azul))
+	depDeportes.agregarAFlota(new ChevroletCorsa(color = verde))
+	depDeportes.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = true))
+	depDeportes.agregarAFlota(new AutoEspecial(capacidad = 5, velMaxima = 160, peso = 1200, color = beige))
+	
+	//Dependencia de cultura
+	const depCultura = new Dependencia(cantEmpleados = 31)
+	depCultura.agregarAFlota(cachito)
+	depCultura.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = true))
+	depCultura.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = true))
+	depCultura.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = false))
+	depCultura.agregarAFlota(new Traffic(interior = popular, motor = bataton))
+	
+	assert.equals(7,depDeportes.capacidadTotalEnColor(azul))
+	assert.equals(10,depCultura.capacidadTotalEnColor(azul))
+}
+
+test "el auto mas rapido" {
+	const cachito = new ChevroletCorsa( color = rojo)
+	
+	//Dependencia de deportes
+	const depDeportes = new Dependencia(cantEmpleados = 45)
+	
+	depDeportes.agregarAFlota(cachito)
+	depDeportes.agregarAFlota(new ChevroletCorsa(color = azul))
+	depDeportes.agregarAFlota(new ChevroletCorsa(color = verde))
+	depDeportes.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = true))
+	depDeportes.agregarAFlota(new AutoEspecial(capacidad = 5, velMaxima = 160, peso = 1200, color = beige))
+	
+	//Dependencia de cultura
+	const depCultura = new Dependencia(cantEmpleados = 31)
+	depCultura.agregarAFlota(cachito)
+	depCultura.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = true))
+	depCultura.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = true))
+	depCultura.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = false))
+	depCultura.agregarAFlota(new Traffic(interior = popular, motor = bataton))
+	
+	assert.equals(beige,depDeportes.colorDelRodadoMasRapido())
+	assert.equals(rojo,depCultura.colorDelRodadoMasRapido())
+}
+
+test "la dependencia es grande" {
+	const cachito = new ChevroletCorsa( color = rojo)
+	
+	//Dependencia de deportes
+	const depDeportes = new Dependencia(cantEmpleados = 45)
+	
+	depDeportes.agregarAFlota(cachito)
+	depDeportes.agregarAFlota(new ChevroletCorsa(color = azul))
+	depDeportes.agregarAFlota(new ChevroletCorsa(color = verde))
+	depDeportes.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = true))
+	depDeportes.agregarAFlota(new AutoEspecial(capacidad = 5, velMaxima = 160, peso = 1200, color = beige))
+	
+	//Dependencia de cultura
+	const depCultura = new Dependencia(cantEmpleados = 31)
+	depCultura.agregarAFlota(cachito)
+	depCultura.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = true))
+	depCultura.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = true))
+	depCultura.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = false))
+	depCultura.agregarAFlota(new Traffic(interior = popular, motor = bataton))
+	
+	assert.equals(true,depDeportes.esGrande())
+	assert.equals(false,depCultura.esGrande())
+}
+
+test "capacidad faltante" {
+	const cachito = new ChevroletCorsa( color = rojo)
+	
+	//Dependencia de deportes
+	const depDeportes = new Dependencia(cantEmpleados = 45)
+	
+	depDeportes.agregarAFlota(cachito)
+	depDeportes.agregarAFlota(new ChevroletCorsa(color = azul))
+	depDeportes.agregarAFlota(new ChevroletCorsa(color = verde))
+	depDeportes.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = true))
+	depDeportes.agregarAFlota(new AutoEspecial(capacidad = 5, velMaxima = 160, peso = 1200, color = beige))
+	
+	//Dependencia de cultura
+	const depCultura = new Dependencia(cantEmpleados = 31)
+	depCultura.agregarAFlota(cachito)
+	depCultura.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = true))
+	depCultura.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = true))
+	depCultura.agregarAFlota(new RenaultKwid(tieneTanqueAdicional = false))
+	depCultura.agregarAFlota(new Traffic(interior = popular, motor = bataton))
+	
+	assert.equals(25,depDeportes.capacidadFaltante())
+	assert.equals(5,depCultura.capacidadFaltante())
+}
